@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>加特林后台</title>
+		<!-- 引入 Bootstrap -->
+      	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      	<link rel="stylesheet" href="css/login.css" />
+	</head>
+	<body>
+	    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+	    <script src="https://code.jquery.com/jquery.js"></script>
+	    <!-- 包括所有已编译的插件 -->
+	    <script src="js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="js/login.js" ></script>
+	    <script type="text/javascript" src="js/HTTP.js" ></script>
+		<div id='app'>
+			<div>
+				<div class="app-header-background">
+					<h2 class="app-header-title">李哥哥牌加特林后台管理系统</h2>
+				</div>
+			</div>
+			<div class="app-header-login text-center" >
+				<input type="text" class="form-control accountInput" id="firstname" placeholder="请输入帐号" />
+				<br>
+				<input type="password" class="form-control passwordInput" id="firstname" placeholder="请输入密码" />
+			</div>
+			<br />
+			<div class="app-header-loginButton">
+				<input class="checkBox" type='checkbox' value="1">记住帐号</input>
+				<br />
+				<br />
+				<input type="button" class="btn btn-primary loginBtn" onclick="checkLogin()" value="登录"/>
+			</div>
+			
+			
+		</div>
+	</body>
+</html>

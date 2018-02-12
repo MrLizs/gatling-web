@@ -1,6 +1,6 @@
-var URL = 'http://127.0.0.1/login/'
+var URL = 'http://localhost:8080/gatlingWebService'
 
-function sendRequest(data,callback){
+function sendRequest(cmd,data,callback){
 	var _url = URL;
 	
 	if(data != null){
@@ -12,17 +12,17 @@ function sendRequest(data,callback){
 		}
 		data = extract(data);
 	}
-	URL += data;
-	$.get(URL,function(data,status){
-		if(status == 400){
-			callback(0,data);
+	
+	$.get(URL+cmd,data,function(result,status){
+		if(status == 'success'){
+			callback(0,result);
 		}
 	});
 }
 
 
 function extract(data){
-	var str = '?';
+	var str = '';
 	for(var k in data){
 		if(str != '?'){
 			str += '&';

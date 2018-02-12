@@ -1,10 +1,10 @@
 function checkLogin(){
 	var token = localStorage.token;
 	if(token != null){
-		tokenLogin(token);
+		this.tokenLogin(token);
 	}
 	else{
-		clickLogin();
+		this.clickLogin();
 	}
 }
 
@@ -17,7 +17,7 @@ function tokenLogin(_token){
 			localStorage.removeItem('token')
 		}
 	}
-	sendRequest({'token':_token},function(err,data){
+	this.sendRequest('/ListeningServlet',{'token':_token},function(err,data){
 		if(err != -1){
 			console.log(data);
 			window.location.href('ServiceWebMain.html')
@@ -26,17 +26,17 @@ function tokenLogin(_token){
 }
 
 function clickLogin(){
-	var account = document.getElementsByClassName('accountInput').value;
+	var account = document.getElementsByClassName('accountInput')[0].value;
 	if(!account){
 		return;
 	}
 	
-	var password = document.getElementsByClassName('passwordInput').value;
+	var password = document.getElementsByClassName('passwordInput')[0].value;
 	if(!password){
 		return;
 	}
 	
-	sendRequest({'account':account,'password':password},function(err,data){
+	this.sendRequest('/ListeningServlet',{'account':account,'password':password},function(err,data){
 		if(err != 1){
 			if(data && data.length == 24){
 				tokenLogin(data);

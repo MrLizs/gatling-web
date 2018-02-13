@@ -1,4 +1,4 @@
-var URL = 'http://localhost:8080/gatlingWebService'
+var URL = 'http://localhost:8080/gatling-service/'
 
 function sendRequest(cmd,data,callback){
 	var _url = URL;

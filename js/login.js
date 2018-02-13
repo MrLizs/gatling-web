@@ -17,7 +17,7 @@ function tokenLogin(_token){
 			localStorage.removeItem('token')
 		}
 	}
-	this.sendRequest('/ListeningServlet',{'token':_token},function(err,data){
+	this.sendRequest('/Login',{'token':_token},function(err,data){
 		if(err != -1){
 			console.log(data);
 			window.location.href('ServiceWebMain.html')
@@ -36,7 +36,7 @@ function clickLogin(){
 		return;
 	}
 	
-	this.sendRequest('/ListeningServlet',{'account':account,'password':password},function(err,data){
+	this.sendRequest('/Login',{'account':account,'password':password},function(err,data){
 		if(err != 1){
 			if(data && data.length == 24){
 				tokenLogin(data);

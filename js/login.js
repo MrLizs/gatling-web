@@ -1,3 +1,5 @@
+window.token = null;
+
 function checkLogin(){
 	var token = localStorage.token;
 	if(token != null){
@@ -8,21 +10,26 @@ function checkLogin(){
 	}
 }
 
-function tokenLogin(_token){
+function tokenLogin(_data){
+	var obj = JSON.parse(_data);
 	if(document.getElementsByClassName("checkBox").checked){
-		sessionStorage.token = _token;
+		localStorage.token = obj.token;
 	}
 	else{
-		if(sessionStorage.token){
-			localStorage.removeItem('token')
+		if(localStorage.token){
+			localStorage.removeItem('token');
 		}
 	}
-	this.sendRequest('/Login',{'token':_token},function(err,data){
-		if(err != -1){
-			console.log(data);
-			window.location.href('ServiceWebMain.html')
-		}
-	})
+	token = obj.token;
+	localStorage.menuList = _data;
+	window.location.href = "ExpressionList.html";
+//	this.sendRequest('/Login',{'token':_token},function(err,data){
+//		if(err != -1){
+//			console.log(data);
+//			sessionStorage.menu = JSON.stringify(data);
+//			window.location.href('ServiceWebMain.html')
+//		}
+//	})
 }
 
 function clickLogin(){
@@ -38,8 +45,8 @@ function clickLogin(){
 	
 	this.sendRequest('/Login',{'account':account,'password':password},function(err,data){
 		if(err != 1){
-			if(data && data.length == 24){
-				tokenLogin(data);
+			if(data){
+				this.tokenLogin(data);
 			}
 		}
 	})

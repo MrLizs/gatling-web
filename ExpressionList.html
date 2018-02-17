@@ -11,7 +11,7 @@
 		<script type="text/javascript" src="js/vue.min.js" ></script>
 		<script type="text/javascript" src="js/expression.js" ></script>
 	</head>
-	<body>
+	<body onload="menuListInit()">
 		<div class="expression-top">
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="container-fluid">
@@ -20,18 +20,28 @@
 					</div>
 				</div>
 			</nav>
-        </div> 
-		<div class="expression-left">
-			<ul class="leftnav nav-pills nav-stacked col-lg-6" id="nav-left">
-				<!--{{value}}-->
-			  <!--<li class="active"><a href="#">Home</a></li>
-			  <li><a href="#">SVN</a></li>
-			  <li><a href="#">iOS</a></li>
-			  <li><a href="#">VB.Net</a></li>
-			  <li><a href="#">Java</a></li>
-			  <li><a href="#">PHP</a></li>-->
-			</ul>
+        </div>
+		<div class="expression">
+			<div class="expression-left">
+				<ul class="nav nav-pills nav-stacked" id="leftNav">
+				  <li class="active"><a href="#">通用话术管理</a></li>
+				  <li><a href="#">军团话术管理</a></li>
+				</ul>				
+			</div>
+			<div id="expression-center">
+				<div class="type-box">
+					<div class="centerNav">
+						<ul class="nav nav-pills" id="centerNav">
+						</ul>
+					</div>
+				</div>
+				<div id="Center">
+					<div class="centerContent">
+						
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="expression-center"></div>
+		
 	</body>
 </html>

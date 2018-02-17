@@ -1,5 +1,22 @@
 .expression-left{
+	float: left;
 	width: 20%;
 	height: auto;
 	max-width: 30%;
+}
+#nav-left{
+	margin:0;
+	padding:0;
+}
+#expression-center{
+	float: right;
+	background-color: #E8E8E8;
+	width: 80%;
+	height: 60em;
+}
+/*.type-box{
+	background-color: #DDDDDD;
+}*/
+.Center #centerContent{
+	background-color: coral;
 }
